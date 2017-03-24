@@ -1,0 +1,78 @@
+page-about {
+
+  .content-page {
+    width: 96%;
+    padding: auto;
+    height: 97%;
+    margin: .8rem;
+  }
+
+  .heading {
+    border: 1px solid lightgray;
+  }
+
+  .about-it {
+    text-align: center;
+    margin: auto;
+  }
+
+
+  .about-it-content {
+    font-size: 16px;
+    margin: auto;
+    text-align:justify ;
+  }
+
+  /*  body content */
+  .body-content {
+    text-align: justify;
+    font-size: 15px;
+    padding: .5rem;
+    line-height: 2.2rem;
+  }
+
+  .add-comments-bar-border {
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+  }
+
+  .add-comments-bar {
+    margin: auto;
+    text-align: center;
+  }
+
+
+
+  .button-small-md {
+    padding: 0 0.3em;
+    height: 2.1em;
+    font-size: 1.3rem;
+    background-color: rgb(126, 16, 76);
+    margin-left: -0.5rem;
+  }
+
+
+  .maps {
+    border: 1px solid lightgray;
+    height: 20%;
+    margin: 1rem
+  }
+
+  .button-inner {
+    color: lightgray;
+  }
+  .button-ios {
+
+    color: white;
+    background-color: rgb(126, 16, 76);
+  }
+  .button-inner {
+    color: white;
+  }
+  .banner {
+
+    margin: auto;
+  }
+
+
+}

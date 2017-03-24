@@ -1,0 +1,89 @@
+<ion-header></ion-header>
+
+<ion-content>
+    <ion-label>
+        <div></div>
+        <div class="top_mobile_ad" padding-horizontal>
+            {{top_mobile_ad?.description}}
+        </div>
+        <ion-buttons clear class="button-close" (click)="dismiss()">
+            <button ion-button icon-only clear>
+                <ion-icon item-right (click)="dismiss()" name="md-close" md="md-close"></ion-icon>
+            </button>
+        </ion-buttons>
+
+    </ion-label>
+
+    <div class="map-ads">
+        <div #map id='map_canvas'></div>
+        <div class="mobile_display_ad_large">
+            {{mobile_display_ad_large?.description}}
+        </div>
+    </div>
+    <ion-list>
+        <place-info [place]="place" [mobile_display_ad_small]="mobile_display_ad_small"></place-info>
+        <ion-list-header>
+            <h2>Make your selection below...</h2>
+        </ion-list-header>
+
+        <ion-item-divider *ngIf="place.source!='remake'">
+            <ion-thumbnail item-left padding-vertical>
+                <img src="assets/place/claim_it_origin.png">
+            </ion-thumbnail>
+            <h2>Claim It!</h2>
+            <p>Stake your claim, earn, &amp; become the founder of this object, place, or thing!</p>
+            <button item-right ion-button small icon-right color="remake" (click)="claimIt()">
+                Select! >>
+            </button>
+        </ion-item-divider>
+
+        <ion-item-divider>
+            <ion-thumbnail item-left padding-vertical>
+                <img src="assets/place/rshare.png">
+            </ion-thumbnail>
+            <h2>r-$hare!</h2>
+            <p>Share this object, place, or thing with friends and earn! The new way to share!</p>
+            <button item-right ion-button small icon-right color="remake">
+                Select! >>
+            </button>
+        </ion-item-divider>
+        <ion-item-divider>
+            <div item-left class="in_stream_mobile_ad" padding-horizontal>
+                {{in_stream_mobile_ad?.description}}
+            </div>
+        </ion-item-divider>
+        <!--//In-stream Premium Report Function-->
+        <ion-item-divider>
+            <ion-thumbnail item-left padding-vertical>
+                <img src="assets/place/leafly-logo-dark.png"/>
+            </ion-thumbnail>
+            <h2>Leafly Report</h2>
+            <p>A special report from Leafly abo this object, place or thing!</p>
+            <button solid item-right ion-button small icon-right color="remake">
+                Select! >>
+            </button>
+        </ion-item-divider>
+        <ion-item-divider>
+            <ion-thumbnail item-left padding-vertical>
+                <img src="assets/place/about_origin.png">
+            </ion-thumbnail>
+            <h2>About It!</h2>
+            <p>Learn about this object, place, or thing in your augmented reality scenes!</p>
+            <button item-right ion-button small icon-right color="remake" (click)="aboutIt(place)">
+                Select! >>
+            </button>
+            <ion-spinner name="bubbles" *ngIf="showAboutSpinner" class="menu-element-spinner"></ion-spinner>
+        </ion-item-divider>
+        <ion-item-divider *ngIf="place.source=='remake'">
+            <ion-thumbnail item-left padding-vertical>
+                <img src="assets/place/progress_report_mini.jpg">
+            </ion-thumbnail>
+            <h2>Progress Report</h2>
+            <p>A special report showing how this object, place or thing compares to the rest!</p>
+            <button item-right ion-button small icon-right color="remake" (click)="progressReport(place)">
+                Select! >>
+            </button>
+            <ion-spinner name="bubbles" *ngIf="showAboutProgressReport" class="menu-element-spinner"></ion-spinner>
+        </ion-item-divider>
+    </ion-list>
+</ion-content>

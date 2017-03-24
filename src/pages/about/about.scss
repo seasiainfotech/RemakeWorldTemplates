@@ -1,0 +1,49 @@
+page-about {
+
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .item-md ion-thumbnail {
+    height: 50px;
+    min-height: 50px;
+    width:50px;
+    min-width:50px;
+  }
+  .item-md {
+    margin-top:5px;
+    h2 {
+      font-weight: bold;
+    }
+    h4{
+      padding-bottom: 5px;
+      line-height: 2rem;
+    }
+    .button-inner {
+      text-transform: none;
+    }
+  }
+  .list-md {
+    margin:0;
+  }
+  .label-md {
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+  ion-label {
+    white-space: normal;
+  }
+  div.dialog_expression_logo {
+    background: url("#{$img_server}site_images/expression_elements/images/all_expressions.png");
+    height: 50px;
+    left: 20px;
+    position: absolute;
+    top: 16px;
+    &.dialog_expression_logo_comment{
+      width: 80px;
+      background-position: -120px 0;
+    }
+  }
+}

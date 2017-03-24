@@ -1,0 +1,90 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content padding style="width: 96%;padding: auto;height: 97%;margin: .8rem;">
+
+<!--Advertisement STARTS-->
+
+  <ion-label>
+    <div></div>
+    <div class="top_mobile_ad" padding-horizontal>
+      {{top_mobile_ad?.description}}
+    </div>
+    <ion-buttons clear class="button-close" (click)="dismiss()">
+      <button ion-button icon-only clear>
+        <ion-icon item-right (click)="dismiss()" name="md-close" md="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-label>
+  <!--Advertisement ENDS-->
+
+<!-- map section STARTS -->
+
+  <div class="map-ads">
+    <div #map id='map_canvas'></div>
+    <div class="mobile_display_ad_large">
+      {{mobile_display_ad_large?.description}}
+    </div>
+  </div>
+  <!-- map section ends-->
+
+  <!-- pin icon ,map location  start-->
+  <ion-row>
+    <ion-col width-10 class="aboutIt"><img src="assets/images/wikitude/google_place_35.png"></ion-col>
+    <ion-col width-50 class="aboutIt">
+      <div style="font-weight: bold;">{{place.name}}</div>
+      {{place.address}} <span style="color:blue">{{place.phone}}</span></ion-col>
+    <ion-col width-20 class="aboutIt"><img src="assets/place/phone.png"></ion-col>
+    <ion-col width-20 class="aboutIt"><img src="assets/place/deal.png"></ion-col>
+
+  </ion-row>
+  <!-- pin location  end-->
+
+  <!-- about it image add comments border start -->
+
+  <div class="add-comments-bar-border">
+    <ion-row>
+      <ion-col width-20 class="aboutIt-image"><img src="assets/place/about_w_50.png"></ion-col>
+      <ion-col width-67 class="aboutIt-content">Learn or Tell More About this object,place or thing!..</ion-col>
+
+
+    </ion-row>
+  </div>
+
+  <!-- about it image add comments border end -->
+
+  <!---body content start--->
+  <div class="body-content">
+
+    {{showAbout}}
+
+  </div>
+  <!---body content end--->
+
+  <!-- Comments section  start-->
+  <div class="add-comments-bar-border">
+    <ion-row>
+      <ion-col width-20 class="add-comments-bar"><img src="assets/place/chat.jpg"></ion-col>
+      <ion-col width-50 class="add-comments-bar">
+        <div style="font-weight: bold;">Add Your Comments!</div>
+        <span>daqgfvkagfviafvyiagfvyakufv</span></ion-col>
+      <ion-col width-25 class="add-comments-bar">
+        <button item-right ion-button small icon-right color="remake" (click)="aboutIt(place)">
+          Select! >>
+        </button>
+      </ion-col>
+
+    </ion-row>
+  </div>
+  <!-- Comments section  end-->
+
+  <!--banner section footer start-->
+  <ion-item-divider>
+    <div item-left class="in_stream_mobile_ad" padding-horizontal>
+      {{in_stream_mobile_ad?.description}}
+    </div>
+  </ion-item-divider>
+  <!--banner section footer end-->
+</ion-content>

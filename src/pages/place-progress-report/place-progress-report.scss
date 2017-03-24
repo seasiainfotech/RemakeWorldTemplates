@@ -1,0 +1,239 @@
+page-place-progress-report {
+  .preview_user_progress_report {
+    border: 1px solid #D8DEEA;
+    padding-top: 5px;
+  }
+
+  .preview_user_progress_report table {
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  .preview_user_progress_report div.progress_width_name {
+    width: 172px;
+  }
+
+  .preview_user_progress_status {
+    float: left;
+    width: 35px;
+    padding: 10px 5px;
+  }
+
+  .preview_user_progress_name {
+    float: left;
+    font-weight: bold;
+    width: 147px;
+    text-align: center;
+    padding-top: 7px;
+  }
+
+  .tdpreview_user_progress_name {
+    font-weight: bold;
+    text-align: center;
+    word-wrap: break-word;
+  }
+
+  .preview_user_progress_ico {
+    float: left;
+    width: 35px;
+    padding: 10px 5px;
+  }
+
+  .preview_user_progress_table {
+    padding: 10px 5px;
+  }
+
+  .preview_user_progress_subject {
+    float: left;
+    font-weight: bold;
+    width: 70%;
+    padding: 3px 0px 3px 2px;
+    font-size: 14px
+  }
+
+  .preview_user_progress_score {
+    float: left;
+    font-weight: bold;
+    padding: 3px 3px;
+    width: 15%;
+    font-size: 14px;
+    text-align: center
+  }
+
+  .preview_user_progress_grade {
+    float: left;
+    font-weight: bold;
+    padding: 3px 1px;
+    width: 15%;
+    font-size: 14px;
+    text-align: center
+  }
+
+  .preview_user_progress_cell {
+    border: 2px solid #66003F;
+    height: 25px;
+    margin-top: 2px
+  }
+
+  .preview_user_progress_cell_two_rows {
+    border: 2px solid #66003F;
+    height: 32px;
+    margin-top: 2px
+  }
+
+  .preview_user_progress_sub {
+    float: left;
+    height: 100%;
+    width: 75%;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0px 5px;
+    line-height: 24px;
+    border-right: 2px solid #66003F;
+  }
+
+  .preview_user_progress_sco {
+    float: left;
+    border-left: none;
+    width: 15%;
+    height: 100%;
+    padding: 0px 3px;
+    font-size: 11px;
+    text-align: center;
+    font-weight: bold;
+    line-height: 24px;
+    border-right: 2px solid #66003F;
+  }
+
+  .preview_user_progress_gra {
+    float: left;
+    border-left: none;
+    height: 100%;
+    width: 10%;
+    padding: 0px 4px;
+    text-align: center;
+    line-height: 24px;
+  }
+
+  .preview_user_progress_gra img {
+    padding-top: 3px;
+  }
+
+  .preview_user_progress_notice {
+    padding: 0 5px 10px;
+    font-size: 10px;
+    .progress_report_exceptional {
+      background: $img_server;
+    }
+  }
+
+  .preview_user_progress_notice img {
+    float: left;
+    margin-top: 5px;
+  }
+
+  .preview_user_progress_notice .progress_descr {
+    float: left;
+    padding: 7px 6px 2px;
+  }
+
+  .progress_profile .preview_user_progress_share {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .progress_profile .preview_user_progress_report {
+    padding: 20px;
+  }
+
+  .progress_profile .preview_user_progress_status {
+    width: 65px;
+    text-align: left;
+  }
+
+  .progress_profile .preview_user_progress_ico {
+    width: 65px;
+    text-align: right;
+  }
+
+  .progress_profile .preview_user_progress_name {
+    font-size: 14px;
+    width: 157px;
+  }
+
+  .progress_profile .preview_user_progress_sub {
+    width: 151px;
+  }
+
+  .progress_profile .preview_user_progress_sco {
+    width: 80px;
+  }
+
+  .progress_profile .preview_user_progress_gra {
+    padding: 0.5px 4px;
+    width: 35px
+  }
+
+  .progress_profile .preview_user_progress_subject {
+    width: 160px;
+    font-size: 16px
+  }
+
+  .progress_profile .preview_user_progress_score {
+    font-size: 16px;
+    width: 81px;
+  }
+
+  .progress_profile .preview_user_progress_grade {
+    font-size: 16px;
+    width: 47px
+  }
+
+  .progress_profile .preview_user_progress_notice {
+    padding: 0 15px;
+  }
+
+  .preview_profile_progress_status {
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 30px;
+  }
+  .progress_report_icon {
+    background: url(#{$img_server}site_images/citizen/progress.png) no-repeat -3px 0;
+    width: 16px;
+    height: 20px;
+    display: inline-block;
+    float: left;
+  }
+  .progress_report_icon.progress_report_good {
+    background-position: -23px;
+  }
+  .progress_report_icon.progress_report_average {
+    background-position: -43px;
+  }
+  .progress_report_icon.progress_report_needs_improvement {
+    background-position: -63px;
+  }
+  .progress_report_icon.progress_report_emergency {
+    background-position: -83px;
+  }
+  .inline-block {
+    display: inline-block;
+  }
+  .small-thumb {
+    width: 35px;
+  }
+  .item-md ion-thumbnail {
+    height: 50px;
+    min-height: 50px;
+    width:50px;
+    min-width:50px;
+  }
+  .item-md h2 {
+    font-weight: bold;
+  }
+  ion-label {
+    white-space: normal;
+  }
+}

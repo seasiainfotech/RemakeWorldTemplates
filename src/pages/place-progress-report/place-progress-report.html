@@ -1,0 +1,42 @@
+<!--
+  Generated template for the PlaceProgressReport page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header></ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ion-item-divider>
+            <ion-thumbnail item-left>
+                <img src="assets/place/progress_report_mini.jpg" class="small-thumb">
+            </ion-thumbnail>
+            <h2>Checkout the progress for this object. See how it compares to others</h2>
+        </ion-item-divider>
+        <ion-item-divider>
+            <div class="preview_user_progress_table">
+                <div class="preview_user_progress_subject">Subject</div>
+                <div class="preview_user_progress_score">Score</div>
+                <div class="preview_user_progress_grade">Grade</div>
+                <div class="clear" style="clear: both"></div>
+                <div [innerHtml]="html"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="preview_user_progress_notice">
+                <div class="progress_report_icon progress_report_exceptional"></div>
+                <div class="progress_descr"> = Exceptional, </div>
+                <div class="progress_report_icon progress_report_good"></div>
+                <div class="progress_descr"> = Good, </div>
+                <div class="progress_report_icon progress_report_average"></div>
+                <div class="progress_descr"> = Average, </div>
+                <div class="progress_report_icon progress_report_needs_improvement"></div>
+                <div class="progress_descr"> = Needs improvement, </div>
+                <div class="progress_report_icon progress_report_needs_emergency"></div>
+                <div class="progress_descr"> = Remake Emergency!</div>
+                <div class="clear"></div>
+            </div>
+        </ion-item-divider>
+    </ion-list>
+</ion-content>

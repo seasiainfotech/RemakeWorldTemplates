@@ -1,0 +1,19 @@
+<ion-list-header>
+    <ion-thumbnail item-left padding-vertical class="place_thumb">
+        <img src="assets/images/wikitude/google_place_35.png">
+    </ion-thumbnail>
+    <h2>{{place.name}}</h2>
+    <p>{{place.address}}</p>
+    <p><span>Direction</span></p>
+    <p><span>{{place.phone}}</span></p>
+    <ion-thumbnail item-right padding-vertical>
+        <img src="assets/place/phone.png">
+    </ion-thumbnail>
+    <ion-thumbnail item-right padding-vertical>
+        <div class="mobile_display_ad_small">
+            {{mobile_display_ad_small?.description}}
+        </div>
+        <div></div>
+    </ion-thumbnail>
+</ion-list-header>
+

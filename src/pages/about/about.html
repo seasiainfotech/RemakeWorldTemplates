@@ -1,0 +1,60 @@
+<ion-header></ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item-divider *ngIf="about">
+            <ion-thumbnail item-left>
+                <img src="assets/place/about_w_50.png" class="small-thumb">
+            </ion-thumbnail>
+            <h2>Learn about this object, place or thing!</h2>
+        </ion-item-divider>
+        <ion-item-divider *ngIf="about">
+            <p padding>{{about}}</p>
+        </ion-item-divider>
+        <ion-item-divider *ngIf="comments.length">
+            <ion-thumbnail item-left>
+                <img src="{{imgServerUrl}}site_images/expression_elements/images/elements_2_03_50.png" class="small-thumb">
+            </ion-thumbnail>
+            <h2>Citizen comments...</h2>
+        </ion-item-divider>
+        <ion-item *ngIf="comments.length">>
+            <ion-list>
+                <ion-item-divider *ngFor="let comment of comments">
+                    <ion-avatar item-left>
+                        <img src="{{imgServerUrl}}{{comment.user_photo}}">
+                    </ion-avatar>
+                    <h4><strong>{{comment.user_name}} (Citizen)</strong></h4>
+                    <p *ngIf="comment.title">{{comment.title}}</p>
+                    <p *ngIf="comment.description">{{comment.description}}</p>
+                    <p *ngIf="comment.date">&nbsp;</p>
+                    <p style="font-size: 70%" *ngIf="comment.date">{{comment.date}}</p>
+                </ion-item-divider>
+            </ion-list>
+            <ion-infinite-scroll *ngIf="showInfineScroll" (ionInfinite)="doInfinite($event)">
+                <ion-infinite-scroll-content  loadingSpinner="bubbles"  loadingText="Loading more data..."></ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+        </ion-item>
+        <ion-item  *ngIf="!comments.length">
+            <ion-grid>
+                <ion-row>
+                    <ion-col width-20>
+                        <ion-thumbnail item-left>
+                            <img src="{{imgServerUrl}}site_images/expression_elements/images/elements_2_03_50.png" class="small-thumb">
+                        </ion-thumbnail>
+                    </ion-col>
+                    <ion-col width-35>
+                        <h3><strong>Add your comments!</strong></h3>
+                        <p style="font-size: 80%">
+                            Know something about this object, place, or thing. Add comments & help others learn!
+                        </p>
+                    </ion-col>
+                    <ion-col width-25>
+                        <button small ion-button  color="remake" class="button-inner">
+                            Select! >>
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+    </ion-list>
+</ion-content>

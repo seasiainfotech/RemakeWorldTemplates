@@ -1,0 +1,12 @@
+.place_preview_block{
+    cursor: default;
+    clear: both;
+    position: relative;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: #BFBFBF;
+    border-style: solid;
+    background-color: #FFF;
+    padding: 4px;
+    font-size: 13px;
+}

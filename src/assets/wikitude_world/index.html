@@ -1,0 +1,350 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes" name="viewport">
+
+    <title>AR Scene</title>
+    <link rel="stylesheet" href="css/poi-radar.css"/>
+    <link rel="stylesheet" href="jquery/jquery.mobile-1.3.2.min.css"/>
+    <link rel="stylesheet" href="jquery/jquery-mobile-transparent-ui-overlay.css"/>
+    <link rel="stylesheet" type="text/css" href="css/settings-panel.css">
+    <link rel="stylesheet" type="text/css" href="css/switchery.min.css">
+    <script type="text/javascript" src="jquery/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="jquery/jquery.mobile-1.3.2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript">
+      var message = `Known issues:
+         - UI doesn't update on orientation change
+         - Text inside of dynamic tray circles still need more fine-tuning 
+         - Header still needs work 
+      `;
+      //alert(message);
+      window.onerror = function(msg, url, lineNo, columnNo, error){
+        if(confirm('An error occured. Would you like to report this error?')){
+          var body = `${msg} | ${url} | At:${lineNo} | Column:${columnNo} | ${JSON.stringify(error)}`; 
+          var subj = 'Wikitude Error'; 
+          var link = `mailto:jacobjordan94@live.com?subject=${subj}&body=${body}`;
+          console.error(body);
+          document.getElementById('error').href = link;
+          document.getElementById('error').click();          
+        }
+      }
+
+      String.prototype.trunc = function (n) {
+        return this.substr(0, n - 1) + (this.length > n ? '...' : '');
+      };
+    </script>
+    <script src="architect://architect.js"></script>
+    <script type="text/javascript" src="js/radar.js"></script>
+    <script type="text/javascript" src="js/marker.js"></script>
+    <script type="text/javascript" src="js/user.js"></script>
+    <script type="text/javascript" src="js/settings.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/switchery.min.js"></script>
+    <!-- <script type="text/javascript" src="ade.js"></script> -->
+</head>
+
+<body>
+<div data-role="page" id="page1" style="background: none;">
+
+    <div id="header" class="black stretch">
+      <table id="table-header">
+        <tr>
+          <td id="header-channel" class="center">
+            <div class="circle" style="border:1px solid white">
+              <p class="vertical-align">Theme</p>
+            </div>
+            <div class="circle" style="border:1px solid white">
+              <p class="vertical-align">Channel</p>
+            </div>
+          </td>
+          <td class="center">Vertical Life</td>
+          <td class="center"><img src="assets/buttons/ICON-VIEW.png" width="50%"></td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="dynamic-tray" class="stretch">
+      <div class="circle circle-selected">
+        <p class="vertical-align">Places</p>
+      </div>
+      <div class="circle circle-not-selected">
+        <p class="vertical-align">Objects</p>
+      </div>
+      <div class="circle circle-not-selected">
+        <p class="vertical-align">Deals</p>
+      </div>
+      <div class="circle circle-selected">
+        <p class="vertical-align">Outdoors</p>
+      </div>
+      <div class="circle circle-not-selected">
+        <p class="vertical-align">Nature</p>
+      </div>
+      <div class="circle circle-not-selected">
+        <p class="vertical-align">Kids</p>
+      </div>
+      <div class="circle circle-selected">
+        <p class="vertical-align">Animals</p>
+      </div>
+      <div class="circle circle-not-selected">
+        <p class="vertical-align">Tech</p>
+      </div>
+      <div class="circle circle-not-selected">
+        <p class="vertical-align">Shopping</p>
+      </div>
+    </div>
+
+    <div id="footer" class="black stretch">
+      <table id="table-footer">
+        <tr>
+          <td style="text-align: right;">
+            <img src="assets/buttons/ICON-TAB-ACTIVITIES-0.png" width="48" height="48" onclick="scene.openActivities(false);" style="cursor: pointer;" id="activities-btn" data-active="false"> 
+          </td>
+          <td style="text-align: center;">
+            <!--<img src="assets/buttons/nav-icon-home-0.png" width="48" height="48" onclick="Settings.openPanel();" style="cursor:pointer;" id="you-btn" data-active="false">-->
+            <img src="assets/buttons/nav-icon-home-0.png" width="48" height="48" onclick="" style="cursor:pointer;" id="you-btn" data-active="false">
+          </td>
+          <td style="text-align: left;">
+            <img src="assets/buttons/ICON-TAB-CAPTURE-0.png" width="48" height="48" onclick="scene.captureScreen();" style="cursor:pointer;" id="capture-btn" data-active="false">
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <a href="" id="error" style="display:none"></a>
+
+    <div id="loading">
+        <img src="assets/settings/spinner.gif" width="48" height="48" style="">    
+    </div>
+
+    <div class="radarContainer_left transparent" id="radarContainer"></div>
+
+    <div data-role="footer" class="ui-bar" data-theme="f" data-position="fixed" style="text-align:center; display: none;">
+        <!-- small status-button -->
+        <a style="text-align:right;" id="popupInfoButton" href="#popupInfo" data-rel="popup" data-role="button"
+           class="ui-icon-alt" data-inline="true" data-transition="pop" data-icon="alert" data-theme="e"
+           data-iconpos="notext">Log</a> </p>
+        <!-- popup displayed when button clicked -->
+        <div data-role="popup" id="popupInfo" class="ui-content" data-theme="e" style="max-width:350px;">
+            <p style="text-align:right;" id="status-message">Trying to find out where you are</p>
+        </div>
+    </div>
+
+    <!-- PANELS, ONLY VISIBLE ON DEMAND -->
+    <!-- panel containing POI detail information -->
+    <div data-role="panel" id="panel-poidetail" data-position="right" data-display="overlay"
+         style="background-color:#F0F0F0;" data-theme="c">
+        <!-- header with "close" button -->
+        <div data-role="header" data-theme="c">
+            <h1>Details</h1>
+            <a href="#header" data-rel="close">Close</a>
+        </div>
+        <!-- content of POI detail page, you may also add thumbnails etc. here if you like -->
+        <div data-role="content">
+            Some content will be here
+            <!-- title -->
+            <h3 id="poi-detail-title"></h3>
+            <!-- description -->
+            <h4 id="poi-detail-description"></h4>
+            <!-- distance -->
+            <h4>Distance: <a id="poi-detail-distance"></a></h4>
+        </div>
+    </div>
+
+    <!-- ============== -->
+    <!-- SETTINGS PANEL -->
+    <!-- ============== -->
+   <div data-role="panel" id="panel-settings" data-position="right" data-display="overlay" style="background-color:#F0F0F0;" data-theme="c">
+      <div data-role="header" data-theme="c" style="background-color: #7BAEE1;">
+         <h1>Settings</h1>
+         <!-- <img src="assets/settings/gear.png" width="24" height="24"> -->
+         <a href="#header" data-rel="close" style="background-color: #7BAEE1">Close</a>
+      </div>
+      <div data-role="content">
+         <table>
+            <tr>
+               <td colspan="4">
+                  <strong>Object Distance (<span id="distance-units">meters</span>)</strong> <br>
+                  <input type="range" name="" id="obj-dist-range" value="1620" min="0" max="2000" step="5" onchange="javascript:World.updateRangeValues();">
+               </td>
+            </tr>
+               <!-- <table> -->
+                  <!-- <tr> -->
+                     <td>Prefer:</td>
+                     <td><span id="meters-label" class="bold">Meters</span></td>
+                     <td><input type="checkbox" id="meters-feet-switch" class="js-switch" onchange="Settings.changePreferredDistUnits(this.checked);"></td>
+                     <td><span id="feet-label">Feet</span></td>
+                  <!-- </tr> -->
+               <!-- </table> -->
+            <tr>
+            <tr>
+                <td>POI:</td>
+                <td><span id="factual-label" class="">Factual</span></td>
+                <td><input type="checkbox" id="factual-google-switch" class="js-switch" onchange="Settings.changePOISource(this.checked);" checked></td>
+                <td><span id="google-label" class="bold">Google Places</span></td>
+            </tr>
+               <td colspan="4">
+                  <strong>Visible Objects (#)</strong> <br>
+                  <input type="number" name="" id="visible-objects-input" value="50" min="1" max="100" step="1" onclick="Settings.changeVisibleObjects(this.value);">
+               </td>
+            </tr>
+            <tr>
+               <td colspan="4">
+                  <strong>Visible Object Types:</strong>
+                  <hr>
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3">
+                  Human Contributed
+               </td>
+               <td>
+                  <input type="checkbox" name="" class="js-switch" checked>
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3">
+                  Official Places &amp; Points of Interest 
+               </td>
+               <td>
+                  <input type="checkbox" name="" class="js-switch">
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3">
+                    Camera Generated
+               </td>
+               <td>
+                  <input type="checkbox" name="" class="js-switch" checked>
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3">
+                  <strong>Display Radar</strong>
+               </td>
+               <td>
+                  <input type="checkbox" name="" class="js-switch" checked onchange="Settings.changeDisplayRadar(this.checked);">
+               </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <strong>Dev:</strong>
+                    <hr>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    POI Radius
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <input type="range" name="range-slider" id="range-slider" min="0" max="5000" step="20" value="1609" ontouchend="Settings.changeRadius(this.value);">
+                </td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <input type="button" name="refresh-places" id="refresh-places-btn" onclick="scene.refreshPlaces();" value="Refresh Places"></input>
+              </td>
+            </tr>
+        </table>   
+      </div>
+   </div>
+   <!-- ================== -->
+   <!-- END SETTINGS PANEL -->
+   <!-- ================== -->
+</div>
+<script type="text/javascript">
+  $('.circle').click(function(){
+    $(this).toggleClass('circle-selected circle-not-selected');
+  })
+</script>
+<script type="text/javascript">
+    var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+    var distSwitch = elems.shift();
+    var poiSwitch = elems.shift();
+    elems.forEach(function(elem){
+      var switchery = new Switchery(elem, {
+        size: 'small',
+        color: '#7BAEE1'
+      });
+    });
+
+    var distSwitchery = new Switchery(distSwitch, {
+        size: 'small',
+        color: '#7BAEE1',
+        secondaryColor: '#7BAEE1'
+    });
+    var poiSwitchery = new Switchery(poiSwitch, {
+        size: 'small',
+        color: '#7BAEE1',
+        secondaryColor: '#7BAEE1'
+    });
+</script>
+<script type="text/javascript">
+  var determineDynamicTrayPos = function(){
+    var dynamicTrayStart = Math.ceil(0 + (window.innerHeight * .105));
+    $('#dynamic-tray').css('top', dynamicTrayStart);  
+  };
+
+  var determineCircleWidth = function(){
+    //circle width needs to be the same as the height of the circle. 
+    var containerHeight = Math.ceil(window.innerHeight * .10)
+    var circleWidth = Math.ceil(containerHeight - (containerHeight * .05));
+    $('#dynamic-tray > .circle').css('width', circleWidth);
+    containerHeight = Math.ceil(containerHeight * 0.75);
+    $('#header-channel > .circle').css('height', containerHeight);
+    $('#header-channel > .circle').css('width', containerHeight);  
+    //$('.circle').css('line-height', circleWidth);
+  };
+
+  var determineRadarPos = function(){
+    //var dynamicTrayStart = Math.ceil(0 + (window.innerHeight * .10));
+    //var radarContainerStart = Math.ceil(dynamicTrayStart + (window.innerHeight * .10));
+    var top = Math.ceil(window.innerHeight / 2) - 50; 
+    $('.radarContainer_left').css('top', top + 'px'); 
+    PoiRadar.updatePosition();
+  };
+
+  var determineLoadingPos = function(){
+    var verticalMid = window.innerHeight / 2;
+    var horizontalMid = window.innerWidth / 2;
+    var imgWidth = $('#loading > img').attr('width');
+    var imgHeight = $('#loading > img').attr('height');
+    var top = verticalMid - (imgHeight / 2);
+    var left = horizontalMid - (imgWidth / 2);
+    $('#loading').css('top', top);
+    $('#loading').css('left', left);
+  };
+
+  var addEvent = function(object, type, callback) {
+    if (object == null || typeof(object) == 'undefined') return;
+    if (object.addEventListener) {
+      object.addEventListener(type, callback, false);
+    } else if (object.attachEvent) {
+      object.attachEvent("on" + type, callback);
+    } else {
+      object["on" + type] = callback;
+    }
+  };
+
+  determineDynamicTrayPos();
+  determineCircleWidth();
+  determineLoadingPos();
+  determineRadarPos();
+
+  addEvent(window, 'resize', determineDynamicTrayPos);
+  addEvent(window, 'resize', determineRadarPos);
+  addEvent(window, 'resize', determineCircleWidth);
+  addEvent(window, 'resize', determineLoadingPos);
+
+  //not sure if these will work..
+  addEvent(window, 'orientationchange', determineDynamicTrayPos);
+  addEvent(window, 'orientationchange', determineRadarPos);
+  addEvent(window, 'orientationchange', determineCircleWidth);
+  addEvent(window, 'orientationchange', determineLoadingPos);
+</script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!--Page-Header Starts-->
+
+<ion-header>
+
+</ion-header>
+
+<!--Page-Header Ends-->
+
+
+<!--Ionic Content Body Starts-->
+<ion-content padding class="content_page">
+
+  <!--Advertisement STARTS-->
+
+  <ion-label>
+    <div></div>
+    <div class="top_mobile_ad" padding-horizontal>
+      {{top_mobile_ad?.description}}
+    </div>
+    <ion-buttons clear class="button-close" (click)="dismiss()">
+      <button ion-button icon-only clear>
+        <ion-icon item-right (click)="dismiss()" name="md-close" md="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-label>
+  <!--Advertisement ENDS-->
+
+  <!-- map section STARTS -->
+
+  <div class="map-ads">
+    <div #map id='map_canvas'></div>
+    <div class="mobile_display_ad_large">
+      {{mobile_display_ad_large?.description}}
+    </div>
+  </div>
+  <!-- map section ends-->
+
+  <!-- pin icon ,map location  start-->
+  <ion-row>
+    <ion-col width-10 class="aboutIt"><img src="assets/images/wikitude/google_place_35.png"></ion-col>
+    <ion-col width-50 class="aboutIt">
+      <div style="font-weight: bold;">{{place.name}}</div>
+      {{place.address}} <span style="color:blue">{{place.phone}}</span></ion-col>
+    <ion-col width-20 class="aboutIt"><img src="assets/place/phone.png"></ion-col>
+    <ion-col width-20 class="aboutIt"><img src="assets/place/deal.png"></ion-col>
+
+  </ion-row>
+  <!-- pin location  end-->
+
+  <!-- Tab-bar Starts-->
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="AR">
+
+      <ion-segment-button value="Screen1">
+
+        Activities
+
+      </ion-segment-button>
+
+      <ion-segment-button value="Screen2">
+        Photos & videos
+      </ion-segment-button>
+      <ion-segment-button value="Screen3">
+        Footstep Followers
+      </ion-segment-button>
+      <ion-segment-button value="Screen4">
+        Expressions
+      </ion-segment-button>
+      <ion-segment-button value="Screen5">
+        Wall
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+  <!--Tab-bar Ends-->
+
+  <!--Tab-bar Content  Starts-->
+  <div [ngSwitch]="AR">
+
+    <!--Tab-bar Content Screen-1 Starts-->
+    <ion-list *ngSwitchCase="'Screen1'">
+
+      <ion-row class="grid-border">
+        <ion-col width-20 class="add-comments-bar"><img src="assets/place/Add Photo Video.png"></ion-col>
+        <ion-col width-50 class="add-comments-bar">
+          <div style="font-weight: bold;">Add Photos and Videos (SCREEN -1)</div>
+          <span>Add photos and vides in this augmented reality scene for others to enjoy </span></ion-col>
+        <ion-col width-25 class="add-comments-bar">
+          <button item-right ion-button small icon-right (click)="aboutIt(place)">
+            Select! >>
+          </button>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row class="grid-border">
+        <ion-col width-20 class="add-comments-bar"><img src="assets/place/Challenge.png"></ion-col>
+        <ion-col width-50 class="add-comments-bar">
+          <div style="font-weight: bold;">Add/Take Challenges !</div>
+          <span>Add challenges for others &earn ! A fun way to enjoy Augmented Reality Scenes!</span></ion-col>
+        <ion-col width-25 class="add-comments-bar">
+          <button item-right ion-button small icon-right (click)="aboutIt(place)">
+            Select! >>
+          </button>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row class="grid-border">
+        <ion-col width-20 class="add-comments-bar"><img src="assets/place/About It with Comment.png"></ion-col>
+        <ion-col width-50 class="add-comments-bar">
+          <div style="font-weight: bold;">About it:Learn or Tell !</div>
+          <span>Know some thing about this scene ? Add comments and help others learn about it!</span></ion-col>
+        <ion-col width-25 class="add-comments-bar">
+          <button item-right ion-button small icon-right (click)="aboutIt(place)">
+            Select! >>
+          </button>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-list>
+    <!--Tab-bar Content Screen-1 Ends-->
+
+    <!--Tab-bar Content Screen-2 Starts-->
+    <ion-list *ngSwitchCase="'Screen2'">
+
+      <ion-row class="grid-border">
+        <ion-col width-20 class="add-comments-bar"><img src="assets/place/Add Photo Video.png"></ion-col>
+        <ion-col width-50 class="add-comments-bar">
+          <div style="font-weight: bold;">Add Photos and Videos (SCREEN -2)</div>
+          <span>Add photos and vides in this augmented reality scene for others to enjoy </span></ion-col>
+        <ion-col width-25 class="add-comments-bar">
+          <button item-right ion-button small icon-right (click)="aboutIt(place)">
+            Select! >>
+          </button>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row class="grid-border">
+        <ion-col width-20 class="add-comments-bar"><img src="assets/place/Challenge.png"></ion-col>
+        <ion-col width-50 class="add-comments-bar">
+          <div style="font-weight: bold;">Add/Take Challenges !</div>
+          <span>Add challenges for others &earn ! A fun way to enjoy Augmented Reality Scenes!</span></ion-col>
+        <ion-col width-25 class="add-comments-bar">
+          <button item-right ion-button small icon-right (click)="aboutIt(place)">
+            Select! >>
+          </button>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row class="grid-border">
+        <ion-col width-20 class="add-comments-bar"><img src="assets/place/About It with Comment.png"></ion-col>
+        <ion-col width-50 class="add-comments-bar">
+          <div style="font-weight: bold;">About it:Learn or Tell !</div>
+          <span>Know some thing about this scene ? Add comments and help others learn about it!</span></ion-col>
+        <ion-col width-25 class="add-comments-bar">
+          <button item-right ion-button small icon-right (click)="aboutIt(place)">
+            Select! >>
+          </button>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-list>
+    <!--Tab-bar Content Screen-2 Ends-->
+
+    <!--Tab-bar Content Screen-3 Starts-->
+    <ion-list *ngSwitchCase="'Screen3'">
+
+      <ion-row class="grid-border">
+        <ion-col width-20 class="add-comments-bar"><img src="assets/place/Add Photo Video.png"></ion-col>
+        <ion-col width-50 class="add-comments-bar">
+          <div style="font-weight: bold;">Add Photos and Videos (SCREEN -3)</div>
+          <span>Add photos and vides in this augmented reality scene for others to enjoy </span></ion-col>
+        <ion-col width-25 class="add-comments-bar">
+          <button item-right ion-button small icon-right (click)="aboutIt(place)">
+            Select! >>
+          </button>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row class="grid-border">
+        <ion-col width-20 class="add-comments-bar"><img src="assets/place/Challenge.png"></ion-col>
+        <ion-col width-50 class="add-comments-bar">
+          <div style="font-weight: bold;">Add/Take Challenges !</div>
+          <span>Add challenges for others &earn ! A fun way to enjoy Augmented Reality Scenes!</span></ion-col>
+        <ion-col width-25 class="add-comments-bar">
+          <button item-right ion-button small icon-right (click)="aboutIt(place)">
+            Select! >>
+          </button>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row class="grid-border">
+        <ion-col width-20 class="add-comments-bar"><img src="assets/place/About It with Comment.png"></ion-col>
+        <ion-col width-50 class="add-comments-bar">
+          <div style="font-weight: bold;">About it:Learn or Tell !</div>
+          <span>Know some thing about this scene ? Add comments and help others learn about it!</span></ion-col>
+        <ion-col width-25 class="add-comments-bar">
+          <button item-right ion-button small icon-right (click)="aboutIt(place)">
+            Select! >>
+          </button>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-list>
+    <!--Tab-bar Content Screen-3 Ends-->
+
+    <!--Tab-bar Content Screen-4 Starts-->
+
+    <ion-list *ngSwitchCase="'Screen4'">
+
+      <ion-row class="grid-border">
+        <ion-col width-20 class="add-comments-bar"><img src="assets/place/Add Photo Video.png"></ion-col>
+        <ion-col width-50 class="add-comments-bar">
+          <div style="font-weight: bold;">Add Photos and Videos (SCREEN -4)</div>
+          <span>Add photos and vides in this augmented reality scene for others to enjoy </span></ion-col>
+        <ion-col width-25 class="add-comments-bar">
+          <button item-right ion-button small icon-right (click)="aboutIt(place)">
+            Select! >>
+          </button>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row class="grid-border">
+        <ion-col width-20 class="add-comments-bar"><img src="assets/place/Challenge.png"></ion-col>
+        <ion-col width-50 class="add-comments-bar">
+          <div style="font-weight: bold;">Add/Take Challenges !</div>
+          <span>Add challenges for others &earn ! A fun way to enjoy Augmented Reality Scenes!</span></ion-col>
+        <ion-col width-25 class="add-comments-bar">
+          <button item-right ion-button small icon-right (click)="aboutIt(place)">
+            Select! >>
+          </button>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row class="grid-border">
+        <ion-col width-20 class="add-comments-bar"><img src="assets/place/About It with Comment.png"></ion-col>
+        <ion-col width-50 class="add-comments-bar">
+          <div style="font-weight: bold;">About it:Learn or Tell !</div>
+          <span>Know some thing about this scene ? Add comments and help others learn about it!</span></ion-col>
+        <ion-col width-25 class="add-comments-bar">
+          <button item-right ion-button small icon-right (click)="aboutIt(place)">
+            Select! >>
+          </button>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-list>
+    <!--Tab-bar Content Screen-4 Ends-->
+
+    <!--Tab-bar Content Screen-5 Starts-->
+
+    <ion-list *ngSwitchCase="'Screen5'">
+
+      <ion-row class="grid-border">
+        <ion-col width-20 class="add-comments-bar"><img src="assets/place/Add Photo Video.png"></ion-col>
+        <ion-col width-50 class="add-comments-bar">
+          <div style="font-weight: bold;">Add Photos and Videos (SCREEN -5)</div>
+          <span>Add photos and vides in this augmented reality scene for others to enjoy </span></ion-col>
+        <ion-col width-25 class="add-comments-bar">
+          <button item-right ion-button small icon-right (click)="aboutIt(place)">
+            Select! >>
+          </button>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row class="grid-border">
+        <ion-col width-20 class="add-comments-bar"><img src="assets/place/Challenge.png"></ion-col>
+        <ion-col width-50 class="add-comments-bar">
+          <div style="font-weight: bold;">Add/Take Challenges !</div>
+          <span>Add challenges for others &earn ! A fun way to enjoy Augmented Reality Scenes!</span></ion-col>
+        <ion-col width-25 class="add-comments-bar">
+          <button item-right ion-button small icon-right (click)="aboutIt(place)">
+            Select! >>
+          </button>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row class="grid-border">
+        <ion-col width-20 class="add-comments-bar"><img src="assets/place/About It with Comment.png"></ion-col>
+        <ion-col width-50 class="add-comments-bar">
+          <div style="font-weight: bold;">About it:Learn or Tell !</div>
+          <span>Know some thing about this scene ? Add comments and help others learn about it!</span></ion-col>
+        <ion-col width-25 class="add-comments-bar">
+          <button item-right ion-button small icon-right (click)="aboutIt(place)">
+            Select! >>
+          </button>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-list>
+    <!--Tab-bar Content Screen-5 Ends-->
+  </div>
+  <!--Tab-bar Content Ends-->
+
+  <!--banner section footer start-->
+  <ion-item-divider>
+    <div item-left class="in_stream_mobile_ad" padding-horizontal>
+      {{in_stream_mobile_ad?.description}}
+    </div>
+  </ion-item-divider>
+  <!--banner section footer end-->
+
+</ion-content>
+
+<!--Ionic Content Body Ends-->
