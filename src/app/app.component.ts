@@ -6,13 +6,13 @@ import * as Factual from 'factual-api';
 import {PlaceObjectPage} from "../pages/place-object/place-object";
 import {PlacePage} from "../pages/place/place";
 import {AboutPageTemp} from "../pages/about temp/about";
-
+import{ResultPagePage} from "../pages/result-page/result-page"
 
 @Component({
     template: `<ion-nav #rootNavController [root]="rootPage"></ion-nav>`
 })
 export class MyApp {
-    rootPage:any = AboutPageTemp;
+    rootPage:any = ResultPagePage;
     constructor(platform: Platform) {
 
         platform.ready().then(() => {

@@ -1,0 +1,187 @@
+page-result-page {
+  .map-ads {
+    height: 30%;
+    clear: both;
+    padding: 0 10px
+  }
+
+  .content_page {
+    width: 96%;
+    padding: auto;
+    height: 97%;
+    margin: .8rem;
+
+  }
+  .mobile_display_ad_large{
+    height: 100%;
+    width: 56%;
+    float: right;
+    text-align: center;
+  }
+  ion-app.ios [padding], ion-app.ios [padding] .scroll-content {
+    padding: 16px;
+    border: 1px solid red;
+    width: 96%;
+    padding: auto;
+    height: 97%;
+    margin: .8rem;
+  }
+
+  .Heading {
+    border: 1px solid lightgray;
+  }
+
+  .aboutIt {
+
+    margin: auto;
+  }
+
+  .button-inner {
+    color: lightgray;
+  }
+
+  .maps {
+    border: 1px solid lightgray;
+    height: 20%;
+    margin: 1rem
+  }
+
+  .segment-md .segment-button {
+
+
+    border-bottom-color: transparent;
+    line-height: normal;
+    text-transform: none;
+    height: auto;
+  }
+
+  .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+    border-color: white;
+    opacity: 1;
+
+  }
+
+  .toolbar-background-md {
+    //  border: 2px solid lightgray;
+    background: transparent;
+  }
+
+  .segment-button {
+    white-space: normal;
+  }
+  .toolbar-md {
+
+    width: 108%;
+    margin-left: -1.5rem;
+  }
+  .toolbar-ios {
+    padding: 4px;
+    min-height: 44px;
+    width: 108%;
+    margin-left: -1.5rem;
+  }
+  .toolbar .segment-md .segment-button.activated, .toolbar .segment-md .segment-button.segment-activated {
+    opacity: 1;
+    color: rgb(126, 16, 76);
+  }
+
+  .add-comments-bar {
+    margin: auto;
+    text-align: justify;
+
+  }
+
+  .button-small-md {
+    padding: 0 0.3em;
+    height: 2.1em;
+    font-size: 1.3rem;
+    background-color: rgb(126, 16, 76);
+    margin-left: -0.5rem;
+  }
+  .button-ios {
+    background-color: rgb(126, 16, 76);
+    color: #fff;
+    margin-left: -0.5rem;
+  }
+  .button-inner {
+
+    color: white;
+  }
+  .banner {
+
+    margin: auto;
+    border: 1px solid lightgray;
+  }
+  .grid-border {
+    border-bottom: 1px solid lightgray;
+    padding:1rem;
+  }
+
+  // IOS Layout
+
+  .toolbar-ios .segment-button {
+    max-width: 100px;
+    height: 3rem;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+  }
+  .toolbar-ios .segment-button {
+    max-width: 100px;
+    height: 3.8rem;
+    max-height: 100%;
+    //padding-top:5px;
+    //padding-left:5px;
+    //padding-right:5px;
+    //padding-bottom: 5px;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+  }
+  page-place-object .segment-button {
+    /* white-space: normal; */
+  }
+  .segment-button {
+
+    padding-top: .5rem;
+  }
+
+  .segment-ios .segment-button {
+
+    border-color: darkgray;
+    color: #fff;
+    background-color: rgb(126, 16, 76);
+  }
+  .segment-ios .segment-button.segment-activated {
+    color: rgb(126, 16, 76);
+    background-color: #fff;
+    font-weight: bold;
+  }
+  .segment-md .segment-button{
+    color: white;
+    font-weight: bold;
+
+  }
+
+
+  .toolbar .segment-md .segment-button.activated, .toolbar .segment-md .segment-button.segment-activated {
+    opacity: 1;
+    color: white;
+  }
+
+}
+page-result-page .segment-md .segment-button.activated, page-result-page .segment-md .segment-button.segment-activated
+{
+  border-color: transparent!important;
+}
+page-result-page .toolbar-ios
+{
+  border: 2px solid transparent;
+}
+page-result-page .toolbar .segment-md .segment-button.activated, page-result-page .toolbar .segment-md .segment-button.segment-activated {
+
+  padding: 0%;
+}
+page-result-page .segment-md .segment-button {
+  color: white;
+  font-weight: bold;
+  padding: 0%;
+}

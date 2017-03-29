@@ -11,6 +11,8 @@ import {PlaceProgressReportPage} from "../pages/place-progress-report/place-prog
 import {PlaceInfo} from "../common/place/place-info.component";
 import {PlaceHeader} from "../common/place/place-header.component";
 import {PlaceObjectPage} from "../pages/place-object/place-object";
+
+import {ResultPagePage} from "../pages/result-page/result-page";
 import {AboutPageTemp} from "../pages/about temp/about";
 
 
@@ -26,6 +28,8 @@ import {AboutPageTemp} from "../pages/about temp/about";
         PlaceInfo,
         PlaceHeader,
       PlaceObjectPage,
+      AboutPage,
+      ResultPagePage,
       AboutPageTemp
     ],
     imports: [
@@ -41,6 +45,8 @@ import {AboutPageTemp} from "../pages/about temp/about";
         AboutPage,
         PlaceProgressReportPage,
       PlaceObjectPage,
+      AboutPage,
+      ResultPagePage,
       AboutPageTemp
     ],
     providers: [

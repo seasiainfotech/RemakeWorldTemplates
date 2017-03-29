@@ -1,0 +1,125 @@
+<!--Page-Header Starts-->
+
+<ion-header>
+
+</ion-header>
+
+<!--Page-Header Ends-->
+
+
+<!--Ionic Content Body Starts-->
+<ion-content padding class="content_page">
+
+  <!--Ionic Grid View:- Banner and Cancel Button Starts-->
+  <ion-label>
+    <div></div>
+    <div class="top_mobile_ad" padding-horizontal>
+      {{top_mobile_ad?.description}}
+    </div>
+    <ion-buttons clear class="button-close" (click)="dismiss()">
+      <button ion-button icon-only clear>
+        <ion-icon item-right (click)="dismiss()" name="md-close" md="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-label>
+  <!--Ionic Grid View:- Banner and Cancel Button Ends-->
+
+  <!--Map Starts-->
+  <div class="map-ads">
+    <div #map id='map_canvas'></div>
+    <div class="mobile_display_ad_large">
+      {{mobile_display_ad_large?.description}}
+    </div>
+  </div>
+  <!--Map Ends-->
+
+  <!-- pin icon ,map location  start-->
+  <ion-row >
+    <ion-col width-10 class="aboutIt"><img src="assets/images/wikitude/google_place_35.png"></ion-col>
+    <ion-col width-50 class="aboutIt">
+      <div style="font-weight: bold;">Location</div>
+      Lat:{{place.lat}} <span style="color:blue">Long:{{place.lng}} </span></ion-col>
+
+    <ion-col width-20 class="aboutIt"><img src="assets/place/deal.png"></ion-col>
+
+  </ion-row>
+  <!-- map location  end-->
+
+  <!-- Tab-bar Starts-->
+
+    <ion-row class="grid-border" style="border-top:1px solid lightgray">
+      <ion-col width-20  class="add-comments-bar"><img src="assets/place/icon.PNG"></ion-col>
+      <ion-col  class="add-comments-bar">Select an object,place,or thing below...</ion-col>
+
+    </ion-row>
+
+  <!--Tab-bar Ends-->
+
+  <!--Tab-bar Content  Starts-->
+
+
+    <!--Tab-bar Content Screen-1 Starts-->
+    <ion-list >
+
+      <ion-row class="grid-border">
+        <ion-col width-20 class="add-comments-bar"><img src="assets/images/wikitude/place_33.png"></ion-col>
+        <ion-col width-50 class="add-comments-bar">
+          <div style="font-weight: bold;">My Place...</div>
+          <span>1234 Main St. Seattle,WA 98101 </span></ion-col>
+        <ion-col width-25 class="add-comments-bar">
+          <button item-right ion-button small icon-right (click)="aboutIt(place)">
+            Select! >>
+          </button>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row class="grid-border">
+        <ion-col width-20 class="add-comments-bar"><img src="assets/images/wikitude/place_33.png"></ion-col>
+        <ion-col width-50 class="add-comments-bar">
+          <div style="font-weight: bold;">Khaled's Favorite..</div>
+          <span>1235 Main St. Seattle,WA 98101</span></ion-col>
+        <ion-col width-25 class="add-comments-bar">
+          <button item-right ion-button small icon-right (click)="aboutIt(place)">
+            Select! >>
+          </button>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row class="grid-border">
+        <ion-col width-20 class="add-comments-bar"><img src="assets/place/claim_it_w_50.png"></ion-col>
+        <ion-col width-50 class="add-comments-bar">
+          <div style="font-weight: bold;">Space Needle</div>
+          <span>1236 Main St. Seattle,WA 98101</span></ion-col>
+        <ion-col width-25 class="add-comments-bar">
+          <button item-right ion-button small icon-right (click)="aboutIt(place)">
+            Select! >>
+          </button>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-list>
+    <!--Tab-bar Content Screen-1 Ends-->
+
+
+  <!--Tab-bar Content Ends-->
+
+
+
+</ion-content>
+
+<!--Ionic Content Body Ends-->
+<!--Advertisement Banner Starts-->
+<!--banner section footer start-->
+<ion-footer style="padding: 1rem;">
+  <ion-item-divider>
+    <div item-left class="in_stream_mobile_ad" padding-horizontal>
+      {{in_stream_mobile_ad?.description}}
+    </div>
+  </ion-item-divider>
+</ion-footer>
+<!--banner section footer end-->
+<!--Advertisement Banner Ends-->
