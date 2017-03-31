@@ -4,43 +4,9 @@
 
 <ion-content padding style="width: 96%;padding: auto;height: 97%;margin: .8rem;">
 
-<!--Advertisement STARTS-->
-
-  <ion-label>
-    <div></div>
-    <div class="top_mobile_ad" padding-horizontal>
-      {{top_mobile_ad?.description}}
-    </div>
-    <ion-buttons clear class="button-close" (click)="dismiss()">
-      <button ion-button icon-only clear>
-        <ion-icon item-right (click)="dismiss()" name="md-close" md="md-close"></ion-icon>
-      </button>
-    </ion-buttons>
-
-  </ion-label>
-  <!--Advertisement ENDS-->
-
-<!-- map section STARTS -->
-
-  <div class="map-ads">
-    <div #map id='map_canvas'></div>
-    <div class="mobile_display_ad_large">
-      {{mobile_display_ad_large?.description}}
-    </div>
-  </div>
-  <!-- map section ends-->
-
-  <!-- pin icon ,map location  start-->
-  <ion-row>
-    <ion-col width-10 class="aboutIt"><img src="assets/images/wikitude/google_place_35.png"></ion-col>
-    <ion-col width-50 class="aboutIt">
-      <div style="font-weight: bold;">{{place.name}}</div>
-      {{place.address}} <span style="color:blue">{{place.phone}}</span></ion-col>
-    <ion-col width-20 class="aboutIt"><img src="assets/place/phone.png"></ion-col>
-    <ion-col width-20 class="aboutIt"><img src="assets/place/deal.png"></ion-col>
-
-  </ion-row>
-  <!-- pin location  end-->
+  <!--Advertisement,Maps and Pin Location STARTS-->
+  <page-place-maps></page-place-maps>
+  <!--Advertisement,Maps and Pin Location ENDS-->
 
   <!-- about it image add comments border start -->
 
@@ -82,12 +48,6 @@
 
 </ion-content>
 
-<!--banner section footer start-->
-<ion-footer style="padding: 1rem;">
-  <ion-item-divider>
-    <div item-left class="in_stream_mobile_ad" padding-horizontal>
-      {{in_stream_mobile_ad?.description}}
-    </div>
-  </ion-item-divider>
-</ion-footer>
-<!--banner section footer end-->
+<!--Advertisement Starts-->
+<page-place-advrt></page-place-advrt>
+<!--Advertisement ENDS-->

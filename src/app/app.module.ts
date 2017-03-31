@@ -14,6 +14,8 @@ import {PlaceObjectPage} from "../pages/place-object/place-object";
 
 import {ResultPagePage} from "../pages/result-page/result-page";
 import {AboutPageTemp} from "../pages/about temp/about";
+import {PlaceMapsPage} from "../pages/place-maps/place-maps";
+import {PlaceAdvrtPage} from "../pages/place-advrt/place-advrt";
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import {AboutPageTemp} from "../pages/about temp/about";
       PlaceObjectPage,
       AboutPage,
       ResultPagePage,
-      AboutPageTemp
+      AboutPageTemp,
+      PlaceMapsPage,
+      PlaceAdvrtPage
     ],
     imports: [
         IonicModule.forRoot(MyApp)
@@ -47,7 +51,9 @@ import {AboutPageTemp} from "../pages/about temp/about";
       PlaceObjectPage,
       AboutPage,
       ResultPagePage,
-      AboutPageTemp
+      AboutPageTemp,
+      PlaceMapsPage,
+      PlaceAdvrtPage
     ],
     providers: [
         AdService,
