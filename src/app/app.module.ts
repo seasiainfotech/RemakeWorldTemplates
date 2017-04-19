@@ -14,8 +14,11 @@ import {PlaceObjectPage} from "../pages/place-object/place-object";
 
 import {ResultPagePage} from "../pages/result-page/result-page";
 import {AboutPageTemp} from "../pages/about temp/about";
-import {PlaceMapsPage} from "../pages/place-maps/place-maps";
-import {PlaceAdvrtPage} from "../pages/place-advrt/place-advrt";
+
+import {TestPage} from "../pages/test/test";
+import {PlaceMapsPage} from "../common/place/place-maps";
+import {PlaceAdvrtPage} from "../common/place/place-advrt";
+import {PlaceHeaderAdvrtPage} from "../common/place/place-header-advrt";
 
 
 @NgModule({
@@ -34,7 +37,9 @@ import {PlaceAdvrtPage} from "../pages/place-advrt/place-advrt";
       ResultPagePage,
       AboutPageTemp,
       PlaceMapsPage,
-      PlaceAdvrtPage
+      PlaceAdvrtPage,
+      PlaceHeaderAdvrtPage,
+      TestPage
     ],
     imports: [
         IonicModule.forRoot(MyApp)
@@ -53,7 +58,9 @@ import {PlaceAdvrtPage} from "../pages/place-advrt/place-advrt";
       ResultPagePage,
       AboutPageTemp,
       PlaceMapsPage,
-      PlaceAdvrtPage
+      PlaceAdvrtPage,
+      PlaceHeaderAdvrtPage,
+      TestPage
     ],
     providers: [
         AdService,

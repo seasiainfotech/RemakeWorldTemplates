@@ -1,9 +1,12 @@
 <!--banner section footer start-->
 <ion-footer style="padding: 1rem;">
-  <ion-item-divider>
+  <ion-item-divider *ngIf="in_stream_mobile_ad">
     <div item-left class="in_stream_mobile_ad" padding-horizontal>
-      {{in_stream_mobile_ad?.description}}
+      <advertisement [ad]="in_stream_mobile_ad"></advertisement>
     </div>
   </ion-item-divider>
 </ion-footer>
+
+
 <!--banner section footer end-->
+

@@ -1,0 +1,14 @@
+<!--Advertisement Header STARTS-->
+
+<ion-label>
+  <div class="top_mobile_ad text-center" padding-right="">
+    <advertisement [ad]="top_mobile_ad" *ngIf="top_mobile_ad"></advertisement>
+  </div>
+  <ion-buttons clear class="button-close" (click)="dismiss()">
+    <button ion-button icon-only clear>
+      <ion-icon item-right (click)="dismiss()" name="md-close" md="md-close"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-label>
+
+<!--Advertisement Header ENDS-->

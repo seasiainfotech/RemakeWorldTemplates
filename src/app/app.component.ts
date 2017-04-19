@@ -7,12 +7,13 @@ import {PlaceObjectPage} from "../pages/place-object/place-object";
 import {PlacePage} from "../pages/place/place";
 import {AboutPageTemp} from "../pages/about temp/about";
 import{ResultPagePage} from "../pages/result-page/result-page"
+import {TestPage} from "../pages/test/test";
 
 @Component({
     template: `<ion-nav #rootNavController [root]="rootPage"></ion-nav>`
 })
 export class MyApp {
-    rootPage:any = ResultPagePage;
+    rootPage:any = TestPage;
     constructor(platform: Platform) {
 
         platform.ready().then(() => {
